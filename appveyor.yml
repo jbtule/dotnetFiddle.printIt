@@ -12,4 +12,4 @@ deploy:
   server:
   api_key:
     secure: b4x/H98mZTs2Z8MT+RTacBAOYy0ULyyOZEaWXrwp/H91f1HXK/7Jr91GEQT7zW5z
-  artifact: *.nupkg
+  artifact: /.*\.nupkg/
