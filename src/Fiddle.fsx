@@ -16,7 +16,6 @@
 
 namespace global
 
-open System.Runtime.CompilerServices
 open Swensen.Unquote.ExtraReflection
 
 [<AutoOpen>]
@@ -25,10 +24,3 @@ module TopLevel =
     printfn "val %s : %s = %A" name (sprintSig <| obj.GetType()) obj
     obj
   let printIt obj = printAs "it" obj
-
-[<Extension>]
-type Fiddle =
-  [<Extension>]
-  static member inline PrintAs (obj, name) = printAs name obj
-  [<Extension>]
-  static member inline PrintIt (obj) = printIt obj
