@@ -2,6 +2,9 @@ build_script:
   - "set PATH=%PATH%;C:\\Program Files (x86)\\Microsoft SDKs\\F#\\3.1\\Framework\\v4.0\\"
   - fsi --exec build.fsx
 
+artifacts:
+  - path: deploy\*.nupkg
+
 test: off
 
 deploy:
@@ -9,4 +12,4 @@ deploy:
   server:
   api_key:
     secure: b4x/H98mZTs2Z8MT+RTacBAOYy0ULyyOZEaWXrwp/H91f1HXK/7Jr91GEQT7zW5z
-  artifact: /deploy\\.*\.nupkg/
+  artifact: *.nupkg
