@@ -8,7 +8,7 @@
     <owners>jbtule</owners>
     <summary>@summary@</summary>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-    <projectUrl>https://github.com/jbtule/Fiddle.printIt</projectUrl>
+    <projectUrl>https://github.com/jbtule/dotnetFiddle.printIt</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>@description@</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
