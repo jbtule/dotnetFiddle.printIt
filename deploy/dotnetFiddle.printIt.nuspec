@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>@project@</id>
+    <version>@build.number@</version>
+    <title>printIt function for dotnetFiddle</title>
+    <authors>@authors@</authors>
+    <owners>jbtule</owners>
+    <summary>@summary@</summary>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/jbtule/Fiddle.printIt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>@description@</description>
+    <releaseNotes>@releaseNotes@</releaseNotes>
+    <copyright>Copyright Authors 2014</copyright>
+    <tags>FSharp fiddle</tags>
+    @dependencies@
+    @references@
+  </metadata>
+ <files>
+  <file src="Fiddle.dll" target="lib" />
+ </files>
+</package>
