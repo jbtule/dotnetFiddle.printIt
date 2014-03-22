@@ -97,12 +97,13 @@ let sprintSig (outerTy:Type) =
                 failwith ("failed to parse type name: " + ty.FullName)
 
         match ty.GetGenericArguments() with
+        | args when FSharpType.IsTuple ty ->
+            (applyParens (if arrSig.Length > 0 then 0 else 3) (sprintf "%s" (args |> Array.map (sprintSig 3) |> String.concat " * "))) +  arrSig
+        | args when FSharpType.IsFunction ty -> //right assoc, binding not as strong as tuples
+            let lhs, rhs = FSharpType.GetFunctionElements ty
+            (applyParens (if arrSig.Length > 0 then 0 else 2) (sprintf "%s -> %s" (sprintSig 2 lhs) (sprintSig 1 rhs))) + arrSig
         | args when args.Length = 0 ->
             (if outerTy.IsGenericTypeDefinition then "'" else "") + (displayName cleanName) + arrSig
-        | args when cleanName = "System.Tuple" ->
-            (applyParens (if arrSig.Length > 0 then 0 else 3) (sprintf "%s" (args |> Array.map (sprintSig 3) |> String.concat " * "))) +  arrSig
-        | [|lhs;rhs|] when cleanName = "Microsoft.FSharp.Core.FSharpFunc" -> //right assoc, binding not as strong as tuples
-            (applyParens (if arrSig.Length > 0 then 0 else 2) (sprintf "%s -> %s" (sprintSig 2 lhs) (sprintSig 1 rhs))) + arrSig
         | args ->
             sprintf "%s<%s>%s" (displayName cleanName) (args |> Array.map (sprintSig 1) |> String.concat ", ") arrSig
 
